@@ -1,0 +1,72 @@
+//variables Generales
+//colores
+$COLOR-FONDO: #000;
+$COLOR-FONDO2: #FEFEFE;
+$COLOR-TEXTO1:white;
+$COLOR-TEXTO2:#424242;
+$COLOR-ENFASIS1:#E2127A;
+$COLOR-ENFASIS2:#B30E61;
+
+
+
+//importar fuentes
+ @import "../fonts/fuentes";
+
+//Importaciones 
+@import "header";
+@import "aside";
+@import "seccion1";
+@import "seccion2";
+@import "footer";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: $COLOR-FONDO;
+    font-family: nittigrotesk-normal;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+
+.Masnoticias {
+  background:$COLOR-FONDO2;
+  justify-content: center;
+  padding: 2em .8em;
+
+  display:grid;
+  gap:1em;
+  grid-auto-rows: auto;
+  grid-template-columns: minmax(500px, 800px) 350px ;
+  justify-content: center;
+
+  grid-template-areas:    "seccion2 aside";
+
+}
+
+button {
+  background: none;
+  border: none;}
+
+h1,h2,h3,h4 {
+  display: none;
+}
+     
+a {
+  color:inherit;
+  background:inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+}
+a:hover {
+  color:$article-color-link-hover;
+}

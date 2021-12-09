@@ -1,0 +1,240 @@
+//variables
+$article-color-texto: $COLOR-TEXTO1;
+$article-color-fondo: $COLOR-FONDO;
+$article-color-link: $COLOR-ENFASIS1;
+$article-color-link-hover: $COLOR-ENFASIS2;
+$seccion1-color-fondo:linear-gradient(90deg,#f7c626 15%,#f68c2f 40%,#e5127d 85%);
+
+
+.seccion1 {
+    background: $seccion1-color-fondo;
+    color:$article-color-texto;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1px;
+    padding: 2px;
+    margin: .8em;
+    h3{
+        display: none;
+    }
+}
+
+.seccion1-articulo {
+    background: #000;
+    width: 100%;
+    display: flex;
+    gap:.5em;
+    padding: .4em;
+}
+
+.seccion1-articulo-imagen {
+    max-width: 30%;
+    height:min-content;
+}
+
+.seccion1-primero .seccion1-articulo-imagen{
+    max-width: 50%;
+}
+
+.seccion1-articulo-parrafo { 
+    margin-top: -.2em;
+    margin-bottom: .2em;
+    color: $article-color-texto;
+}
+
+.seccion1-articulo-enlaceCreador {
+    color: $article-color-link;
+}
+
+
+@media screen and (min-width: 720px) {
+    .seccion1{
+        justify-content: center;
+        gap: 2px;
+    }
+    .seccion1-articulo {
+        padding:0;
+        font-family: AdelleSans-Semibold;
+        font-size: 1.2em;
+        line-height: 1.2em;
+        
+        
+
+        span {
+            font-family: heroic-3;
+            font-size: .8em;
+            text-transform: uppercase;
+        }
+    }
+
+    .seccion1-articulo-descripcion {
+        padding: .6em;
+    }
+
+    
+    //cuadriculas grande
+    .seccion1-cuadriculaGrande {
+        width: 70%;
+        justify-content: center;
+        align-items: flex-start;
+        position: relative;
+        overflow: hidden;
+        
+        .seccion1-articulo-contenedorImagen {
+            min-width: 50%;
+            height: 100%;
+            background: #e5127d;
+            position: relative;
+        }
+        
+        .seccion1-articulo-imagen {
+            object-fit:cover;
+            position: absolute;
+            
+            min-width: 100%;
+            min-height: 100%;
+        }
+
+        .seccion1-articulo-descripcion{
+            padding: 2em 1em;
+            p{
+                font-family: heroic-3;
+                font-size: 3em;
+                font-weight: 600;
+                line-height : 1em;
+                text-transform: uppercase;
+               
+            }
+        }
+    }
+    .seccion1-cuarto {
+        flex-direction: row-reverse;
+    }
+
+    //cuadriculas pequeñas
+    .seccion1-cuadriculaPequena {
+        flex: 1 1 29%;
+        flex-direction: column;
+
+        .seccion1-articulo-imagen {
+            max-width:100%;  
+        }
+    }
+
+    //3 iguales pequeñas
+    .seccion1-cuadriculaIguales{
+        flex: 1 1 33%;
+        flex-direction: column;
+
+        .seccion1-articulo-imagen {
+            max-width:100%;  
+        }
+
+    }
+
+    //última cuadricula
+    .seccion1-cuadriculaUltima {
+        background:transparent;
+        justify-content: center;
+        align-items: center;
+        margin: 3em 0;
+        padding: 0 1.2em;
+        color:black; 
+
+        .seccion1-articulo-imagen {
+            display: none;
+        }
+        .seccion1-articulo-titulo-ultimo {
+            display: inherit;
+            grid-area: titulo;
+            width: 50%;
+            padding-left: .5em;
+            font-family: heroic-1;
+            font-size: 2.5em;
+            text-align: left;
+            align-self: center;
+        }
+
+        .seccion1-articulo-descripcion {
+            text-align: right;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
+            grid-template-areas:    
+            "p      titulo"
+            "span   titulo";
+            
+          
+            .seccion1-articulo-parrafo {
+                grid-area: p;
+                text-align: right;
+                color:black;
+            }
+
+            .seccion1-articulo-By {
+                grid-area: span;
+                color:black;
+                font-size: 1em;
+            } 
+            .seccion1-articulo-enlaceCreador {
+                color:inherit;
+            }
+        }
+    }
+
+//decoración primera cuadricula
+.seccion1-primero::before {
+    background-color: #f7c626;
+    bottom: 30px;
+    content: "";
+    height: 3px;
+    left: 122px;
+    position: absolute;
+    width: 40%;
+    z-index: 4;
+    }
+
+.seccion1-primero::after {
+        background-color: #f7c626;
+        bottom: 0;
+        content: "";
+        height: 3px;
+        left: 65px;
+        position: absolute;
+        -webkit-transform: rotate(120deg);
+        transform: rotate(120deg);
+        -webkit-transform-origin: bottom right;
+        transform-origin: bottom right;
+        width: 38px;
+        z-index: 4;
+    }
+
+//decoración cuarta cuadricula
+.seccion1-cuarto::before {
+    background-color: #e5127d;
+    bottom: 30px;
+    content: "";
+    height: 3px;
+    position: absolute;
+    right: 122px;
+    width: 40%;
+    z-index: 4;
+    }
+
+.seccion1-cuarto::after {
+    background-color: #e5127d;
+    bottom: 0;
+    content: "";
+    height: 3px;
+    position: absolute;
+    right: 65px;
+    -webkit-transform: rotate(-120deg);
+    transform: rotate(-120deg);
+    -webkit-transform-origin: bottom left;
+    transform-origin: bottom left;
+    width: 38px;
+    z-index: 4;
+    }
+
+}
